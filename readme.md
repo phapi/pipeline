@@ -10,6 +10,7 @@ Attaching a new middleware to the pipeline are done by using the <code>pipe()</c
 
 ```php
 <?php
+$pipeline = new Phapi\Middleware\Pipeline();
 $pipeline->pipe(new Middleware\Cors());
 ```
 
