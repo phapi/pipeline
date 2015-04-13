@@ -1,0 +1,35 @@
+{
+  "name": "phapi/pipeline",
+  "description": "Phapi Pipeline is a middleware pipeline handling the middleware queue. Phapi Pipeline relies on PSR-7",
+  "keywords": [
+    "middleware", "pipeline", "phapi"
+  ],
+  "version": "1.0.0",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "homepage": "http://phapi.github.io",
+  "authors": [
+    {
+      "name": "Peter Ahinko",
+      "email": "peter@ahinko.se",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "phapi/contract": "dev-master",
+    "psr/http-message": "0.9.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.6.*",
+    "mockery/mockery": "0.9.*",
+    "codeclimate/php-test-reporter": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phapi\\Middleware\\": "src/Phapi/Middleware/",
+      "Phapi\\Tests\\Middleware\\": "tests/Phapi/Middleware/",
+      "Phapi\\Tests\\Fixtures\\": "tests/Phapi/Fixtures/"
+    }
+  }
+}
