@@ -27,7 +27,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Phapi\\Middleware\\": "src/Phapi/Middleware/",
+      "Phapi\\Middleware\\": "src/Phapi/Middleware/"
+    }
+  },
+    "autoload-dev": {
+    "psr-4": {
       "Phapi\\Tests\\Middleware\\": "tests/Phapi/Middleware/",
       "Phapi\\Tests\\Fixtures\\": "tests/Phapi/Fixtures/"
     }
