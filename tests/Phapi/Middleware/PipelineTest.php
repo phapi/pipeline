@@ -96,4 +96,17 @@ class PipelineTest extends TestCase
         $this->assertTrue($response->hasHeader('exception'));
         $this->assertEquals('caught', $response->getHeader('exception'));
     }
+
+    public function testSerializerMiddleware()
+    {
+        $mockContainer = \Mockery::mock('Phapi\Contract\Di\Container');
+        $mockContainer->shouldReceive('offsetSet');
+
+        $mockSerializer = \Mockery::mock('Phapi\Contract\Middleware\SerializerMiddleware');
+        $mockSerializer->shouldReceive('registerMimeTypes');
+        $mockSerializer->shouldReceive('setContainer')->with(\Mockery::type('Phapi\Contract\Di\Container'));
+
+        $pipeline = new Pipeline($mockContainer);
+        $pipeline->pipe($mockSerializer);
+    }
 }
