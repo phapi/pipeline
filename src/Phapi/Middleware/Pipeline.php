@@ -4,6 +4,7 @@ namespace Phapi\Middleware;
 
 use Phapi\Contract\Middleware\ErrorMiddleware;
 use Phapi\Contract\Middleware\Pipeline as PipelineContract;
+use Phapi\Contract\Middleware\SerializerMiddleware;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -85,6 +86,11 @@ class Pipeline implements PipelineContract {
         // Inject the dependency injection container
         if (method_exists($middleware, 'setContainer') && $this->container !== null) {
             $middleware->setContainer($this->container);
+        }
+
+        // Force serializers to register mime types
+        if ($middleware instanceof SerializerMiddleware) {
+            $middleware->registerMimeTypes();
         }
 
         // Add the middleware to the queue
