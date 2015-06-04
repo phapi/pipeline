@@ -102,8 +102,6 @@ If the middleware should break the queue, example: the client hit the rate limit
 ### Complete example
 ```php
 <?php
-<?php
-
 
 namespace Phapi\Middleware\Example;
 
