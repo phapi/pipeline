@@ -99,6 +99,71 @@ If the middleware should break the queue, example: the client hit the rate limit
   }
 ```
 
+### Complete example
+```php
+<?php
+<?php
+
+
+namespace Phapi\Middleware\Example;
+
+use Phapi\Contract\Di\Container;
+use Phapi\Contract\Middleware\Middleware;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
+/**
+ * Eample middleware
+ *
+ * @category Phapi
+ * @package  Phapi\Middleware\Example
+ * @author   Peter Ahinko <peter@ahinko.se>
+ * @license  MIT (http://opensource.org/licenses/MIT)
+ * @link     https://github.com/phapi/middleware-example
+ */
+class Example implements Middleware
+{
+
+    /**
+     * Dependency injection container
+     *
+     * @var Container
+     */
+    private $container;
+
+    /**
+     * Set dependency injection container
+     *
+     * @param Container $container
+     */
+    public function setContainer(Container $container)
+    {
+        $this->container = $container;
+    }
+
+    /**
+     * Invoking the middleware
+     *
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param callable $next
+     * @return ResponseInterface $response
+     */
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
+    {
+        // Do something ...
+
+        // Call next middleware
+        $response = $next($request, $response, $next);
+
+        // Do something with the response ...
+
+        // Return the response
+        return $response;
+    }
+}
+
+```
 
 ## License
 Phapi Middleware Pipeline is licensed under the MIT License - see the [license.md](https://github.com/phapi/pipeline/blob/master/license.md) file for details
