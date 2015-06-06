@@ -5,6 +5,13 @@ Phapi relies heavily on middleware. Almost everything is a middleware: routing, 
 ## Why middleware?
 The benefits are many. Middleware are easy to replace and from a performance perspective they can, if implemented right, bypass a lot of code that doesn't need to run in specific circumstances, for example, if a client hits their rate limit there is no point in executing routing, dispatching etc.
 
+## Installation
+The package is installed by default by the Phapi framework. Installing the package to use is separately can be done by using composer:
+
+```shell
+$ composer require phapi/pipeline:1.*
+```
+
 ## Usage
 Attaching a new middleware to the pipeline are done by using the <code>pipe()</code> method.
 
