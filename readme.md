@@ -33,19 +33,7 @@ Implementing the ErrorMiddleware interface enables the pipeline to be able to ha
 
 ## Create your own middleware class
 
-Middleware accepts a request and a response and a callback (<code>$next</code>) that is called if the middleware allows further middleware to process the request. If a middleware doesn't need or desire to allow further processing it should not call the callback (<code>$next</code>) and should instead return a response. Note that <code>$next</code> can be <code>null</code>.
-
-If you implement a method named <code>setContainer()</code> the pipeline will call that method and provide the Dependency Injector Container that can be used in the <code>__invoke()</code> method.
-
-**Example:**
-
-```php
-<?php
-  public function setContainer($container)
-  {
-    $this->container = $container;
-  }
-```
+Middleware requires a request and a response and a callback (<code>$next</code>) that is called if the middleware allows further middleware to process the request. If a middleware doesn't need or desire to allow further processing it should not call the callback (<code>$next</code>) and should instead return a response. Note that <code>$next</code> can be <code>null</code>.
 
 The main task of a middleware is to process an incoming request and/or the response. The middleware must accept a request and a response (PSR-7 compatible) instance and do something with them.
 
@@ -84,7 +72,7 @@ The middleware must pass a request and a response to the ($next) callback and fi
   }
 ```
 
-If the middleware should break the queue, example: the client hit the rate limit, it should return a response instead of invoking <code>$next</code>.
+If the middleware should break the pipeline, example: the client hit the rate limit, it should return a response instead of invoking <code>$next</code>.
 
 **Example:**
 
@@ -106,7 +94,22 @@ If the middleware should break the queue, example: the client hit the rate limit
   }
 ```
 
+### Dependency Injection Container
+If you implement a method named <code>setContainer()</code> the pipeline will call that method and provide the Dependency Injector Container that can be used in the <code>__invoke()</code> method.
+
+**Example:**
+
+```php
+<?php
+  public function setContainer($container)
+  {
+    $this->container = $container;
+  }
+```
+
 ### Complete example
+Here is a complete example of how a middleware should look. Use this example as a starting point when you wan't to write your own middleware.
+
 ```php
 <?php
 
