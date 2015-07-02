@@ -20,7 +20,8 @@ use Psr\Http\Message\ResponseInterface as Response;
  * @license  MIT (http://opensource.org/licenses/MIT)
  * @link     https://github.com/phapi/pipeline
  */
-class Pipeline implements PipelineContract {
+class Pipeline implements PipelineContract
+{
 
     /**
      * Queue of middleware
