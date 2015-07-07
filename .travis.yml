@@ -15,5 +15,3 @@ after_script:
 
 notifications:
   email: false
-  slack:
-    secure: U/8/ccPOa3dhsvy0pfDwb1mNe+y1kK7rhkz2q+ukhNeHRUcOKhDZh0gTr0PUxNpxkYmr3ZqFIou3DL0yD2D1qT2+KYPWcmZAzddRBZ4hdMnH/zqAe6ML93L9rE9G8NL4PAT48MhRQe7WXrGZ9bxVPWNHvgMSFOzVH5v+ha1LOcI=
