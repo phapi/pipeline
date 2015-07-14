@@ -1,5 +1,9 @@
 # Phapi Middleware Pipeline
 
+[![Build status](https://img.shields.io/travis/phapi/pipeline.svg?style=flat-square)](https://travis-ci.org/phapi/pipeline)
+[![Code Climate](https://img.shields.io/codeclimate/github/phapi/pipeline.svg?style=flat-square)](https://codeclimate.com/github/phapi/pipeline)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/phapi/pipeline.svg?style=flat-square)](https://codeclimate.com/github/phapi/pipeline/coverage)
+
 Phapi relies heavily on middleware. Almost everything is a middleware: routing, content negotiation and many other things.
 
 ## Why middleware?
